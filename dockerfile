@@ -22,8 +22,8 @@ RUN echo "adminuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Download and extract the GitHub Actions runner
 RUN cd /home/adminuser && mkdir actions-runner && cd actions-runner \
-    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+    && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
 # Ensure the user has ownership of the files
 RUN chown -R adminuser:adminuser /home/adminuser/actions-runner

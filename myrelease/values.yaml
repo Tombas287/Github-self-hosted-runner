@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 7002370412/dona
+  repository: 7002370412/runner-sample
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
@@ -59,17 +59,17 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources:
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: "4"        # Maximum 8 CPU cores
-    memory: "4Gi"  # Maximum 16 GB RAM
-  requests:
-    cpu: "2"        # Minimum 4 CPU cores allocated
-    memory: "2Gi"   # Minimum 8 GB RAM allocated
+ # limits:
+  #  cpu: "8"        # Maximum 8 CPU cores
+   # memory: "16Gi"  # Maximum 16 GB RAM
+  #requests:
+   # cpu: "4"        # Minimum 4 CPU cores allocated
+   # memory: "8Gi"   # Minimum 8 GB RAM allocated
 
 
 #livenessProbe:
@@ -82,7 +82,7 @@ resources:
 #    port: http
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
