@@ -25,7 +25,25 @@ This repository contains a complete setup for deploying a **self-hosted GitHub A
 
 ### 1. 🔧 Provision Azure Ubuntu VM with Terraform
 
-Create a VM on Azure that will host your Kubernetes cluster.
+Create a VM on Azure that will host your Kubernetes cluster with custom script 
+
+
+#!/bin/bash
+# Update packages
+sudo apt-get update
+
+# Install Docker
+sudo apt-get install -y docker.io
+
+# Start Docker service
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Add current user to Docker group
+sudo usermod -aG docker $USER
+
+# Set permissions to docker.sock
+sudo chmod 666 /var/run/docker.sock
 
 ```bash
 # Replace variables in your Terraform config (not included here)
