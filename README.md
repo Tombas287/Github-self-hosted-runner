@@ -27,7 +27,7 @@ This repository contains a complete setup for deploying a **self-hosted GitHub A
 
 Create a VM on Azure that will host your Kubernetes cluster with custom script 
 
-
+```bash
 #!/bin/bash
 # Update packages
 sudo apt-get update
@@ -44,7 +44,8 @@ sudo usermod -aG docker $USER
 
 # Set permissions to docker.sock
 sudo chmod 666 /var/run/docker.sock
-
+```
+------
 ```bash
 # Replace variables in your Terraform config (not included here)
 terraform init
